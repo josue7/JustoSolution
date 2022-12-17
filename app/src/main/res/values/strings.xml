@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">JustoSolution</string>
+    <string name="text_mainTitle">Generador de datos</string>
+    <string name="text_optionTitle">Seleccione una o varias opciones</string>
+
+    <!-- Titulos para los botones switch que agregaran opciones -->
+    <string name="text_numberResult">Número de resultados</string>
+
+
 </resources>
