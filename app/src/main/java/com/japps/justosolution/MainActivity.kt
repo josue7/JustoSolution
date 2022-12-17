@@ -3,12 +3,14 @@ package com.japps.justosolution
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.japps.justosolution.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binder: ActivityMainBinding
-    private lateinit var attributesAPI: String
+    private lateinit var resultGenerateGender: String
+    private lateinit var resultGenerateNationaliti: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val numberResult = resources.getStringArray(R.array.number_result)
@@ -21,30 +23,46 @@ class MainActivity : AppCompatActivity() {
         binder.actvResult.setAdapter(arrAdapter)
 
         binder.btnDataGenerate.setOnClickListener{
-            attributesAPI = generateQueryGender()
+            Toast.makeText(this, "${generateQueryGender()} and ${generateQueryNationaliti()}", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun generateQueryGender(): String {
-        var query = ""
+    private fun generateQueryGender(): Boolean {
+        var isValid = true
+        resultGenerateGender = ""
         if (binder.cbMale.isChecked == true && binder.cbFemale.isChecked == true){
             binder.cbMale.error = "Solo elegir un genero"
             binder.cbMale.requestFocus()
+            isValid = false
         } else {
             if (binder.cbMale.isChecked == true) {
-                query += "male"
-            }
-            if (binder.cbFemale.isChecked == true){
-                query += "female"
+                resultGenerateGender += "male"
+            } else if (binder.cbFemale.isChecked == true){
+                resultGenerateGender += "female"
             }
         }
-        return query
+
+        return isValid
     }
 
-    private fun generateQueryNationaliti(): String {
-        var query = ArrayList<String>()
+    private fun generateQueryNationaliti() {
+        val query: MutableList<String> = mutableListOf()
         if (binder.cbBr.isChecked == true){
             query.add(resources.getString(R.string.br))
         }
+
+        if (binder.cbAu.isChecked == true){
+            query.add(resources.getString(R.string.au))
+        }
+
+        if (binder.cbCa.isChecked == true){
+            query.add(resources.getString(R.string.ca))
+        }
+
+        if (binder.cbCh.isChecked == true){
+            query.add(resources.getString(R.string.ch))
+        }
+        resultGenerateNationaliti = query.joinToString( separator = ",")
+
     }
 }

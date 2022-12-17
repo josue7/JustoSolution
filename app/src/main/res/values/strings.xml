@@ -41,5 +41,7 @@
     </string-array>
 
     <string name="text_btnGenerate">Generar datos</string>
+    <string name="text_tGender">Genero:</string>
+    <string name="text_tNationaliti">Nacionalidad:</string>
 
 </resources>
