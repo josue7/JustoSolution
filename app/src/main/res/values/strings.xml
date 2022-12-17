@@ -8,6 +8,10 @@
     <string name="text_nationalities">Nacionalidad</string>
     <string name="tex_gender">Género</string>
 
+    <!-- Generos -->
+    <string name="text_female">Femenino</string>
+    <string name="text_male">Maculino</string>
+
     <!-- Nacionalidades -->
     <string name="au">AU</string>
     <string name="br">BR</string>
