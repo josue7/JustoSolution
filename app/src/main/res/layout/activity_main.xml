@@ -295,4 +295,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_dataGenerate"
+        android:layout_width="wrap_content"
+        android:layout_height="48sp"
+        android:text="@string/text_btnGenerate"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/color_secondary"
+        app:strokeColor="@color/secondary_variant_night"
+        app:cornerRadius="15dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

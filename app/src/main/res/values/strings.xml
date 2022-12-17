@@ -40,4 +40,6 @@
         <item>50</item>
     </string-array>
 
+    <string name="text_btnGenerate">Generar datos</string>
+
 </resources>
