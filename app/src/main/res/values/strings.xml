@@ -3,8 +3,37 @@
     <string name="text_mainTitle">Generador de datos</string>
     <string name="text_optionTitle">Seleccione una o varias opciones</string>
 
-    <!-- Titulos para los botones switch que agregaran opciones -->
+    <!-- Titulos para agregaran opciones -->
     <string name="text_numberResult">Número de resultados</string>
+    <string name="text_nationalities">Nacionalidad</string>
+    <string name="tex_gender">Género</string>
 
+    <!-- Nacionalidades -->
+    <string name="au">AU</string>
+    <string name="br">BR</string>
+    <string name="ca">CA</string>
+    <string name="ch">CH</string>
+    <string name="de">DE</string>
+    <string name="dk">DK</string>
+    <string name="es">ES</string>
+    <string name="fi">FI</string>
+    <string name="fr">FR</string>
+    <string name="gb">GB</string>
+    <string name="ie">IE</string>
+    <string name="ir">IR</string>
+    <string name="no">NO</string>
+    <string name="nl">NL</string>
+    <string name="nz">NZ</string>
+    <string name="tr">TR</string>
+    <string name="us">US</string>
+
+    <!-- Cantidad de resultados -->
+    <string-array name="number_result">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
 
 </resources>
