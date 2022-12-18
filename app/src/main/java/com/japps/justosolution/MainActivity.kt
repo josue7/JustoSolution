@@ -1,5 +1,6 @@
 package com.japps.justosolution
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binder: ActivityMainBinding
     private lateinit var resultGenerateGender: String
     private lateinit var resultGenerateNationaliti: String
+    private lateinit var resultNumber: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val numberResult = resources.getStringArray(R.array.number_result)
@@ -22,8 +24,25 @@ class MainActivity : AppCompatActivity() {
         val arrAdapter = ArrayAdapter(this, R.layout.dropdown_item, numberResult)
         binder.actvResult.setAdapter(arrAdapter)
 
+
+        //binder.actvResult.setOnClickListener {
+
+        //}
+
         binder.btnDataGenerate.setOnClickListener{
-            Toast.makeText(this, "${generateQueryGender()} and ${generateQueryNationaliti()}", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "${generateQueryGender()} and ${generateQueryNationaliti()}", Toast.LENGTH_SHORT).show()
+            if (generateQueryGender() == true){
+                generateQueryNationaliti()
+                resultNumber = binder.actvResult.text.toString()
+                val intent = Intent(this, ListaDatosGenerados::class.java)
+                intent.putExtra("numberResult", resultNumber)
+                intent.putExtra("resultGenerateGender", resultGenerateGender)
+                intent.putExtra("resultGenerateNationaliti", resultGenerateNationaliti)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Solo se permite elegír un genero", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 
@@ -47,6 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun generateQueryNationaliti() {
         val query: MutableList<String> = mutableListOf()
+        resultGenerateNationaliti = ""
         if (binder.cbBr.isChecked == true){
             query.add(resources.getString(R.string.br))
         }

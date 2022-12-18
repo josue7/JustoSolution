@@ -93,7 +93,6 @@ class ListaDatosGenerados : AppCompatActivity() {
         Log.i("INIT", "Entro a la funcion showByOnlyProduct de Entrada")
         CoroutineScope(Dispatchers.IO).launch {
             val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom(urlGenerate)
-            //val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom("?results=2&gender=male&nat=au")
 
             Log.i("INIT", "EntradaProducto ---- $call")
             if (call.code() == 200){
