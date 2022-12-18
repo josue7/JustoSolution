@@ -13,6 +13,6 @@ class DataGenerateVH(view: View): RecyclerView.ViewHolder (view){
         Picasso.get().load(item.picture.medium).into(binding.ivImagenHuman)
         binding.tvNombre.text = "${item.name.first} ${item.name.last}"
         binding.tvGender.text = item.gender
-        binding.tvNationaliti.text = item.location.country
+        binding.tvNationaliti.text = item.nat
     }
 }

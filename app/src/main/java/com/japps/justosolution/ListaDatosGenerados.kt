@@ -29,13 +29,18 @@ class ListaDatosGenerados : AppCompatActivity() {
         binding = ActivityListaDatosGeneradosBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bundle = intent.extras
-        var resultGenerateGender = bundle?.getString("resultGenerateGender")
-        var resultGenerateNationaliti = bundle?.getString("resultGenerateNationaliti")
-        var numberResult = bundle?.getString("numberResult")
+        val resultGenerateGender = bundle?.getString("resultGenerateGender")
+        val resultGenerateNationaliti = bundle?.getString("resultGenerateNationaliti")
+        val numberResult = bundle?.getString("numberResult")
         urlGenerate = ""
 
         if (numberResult != null && numberResult != ""){
-            urlGenerate += "?results=$numberResult"
+            if (numberResult == resources.getString(R.string.text_numberResult)){
+                    urlGenerate = ""
+                } else {
+                urlGenerate += "?results=$numberResult"
+            }
+
         }
 
         if (resultGenerateGender != null && resultGenerateGender != ""){
@@ -56,9 +61,10 @@ class ListaDatosGenerados : AppCompatActivity() {
             urlGenerate += "nat=$resultGenerateNationaliti"
         }
 
+
         Toast.makeText(this, "$urlGenerate", Toast.LENGTH_LONG).show()
 
-        //showDataGenerate()
+        showDataGenerate()
     }
 
     private fun getRetrofit(): Retrofit {
@@ -69,8 +75,7 @@ class ListaDatosGenerados : AppCompatActivity() {
     }
 
     private fun initRecyclerView(dataG: GenerateData) {
-        Log.i("INIT", "Entro a la creación de RecyclerView Entrada")
-        if (dataG.info.results > 1){
+        if (dataG.info.results > 0){
             itemGD = dataG.results
         }
 
@@ -87,7 +92,9 @@ class ListaDatosGenerados : AppCompatActivity() {
     private fun showDataGenerate(){
         Log.i("INIT", "Entro a la funcion showByOnlyProduct de Entrada")
         CoroutineScope(Dispatchers.IO).launch {
-            val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom("?results=2")
+            val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom(urlGenerate)
+            //val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom("?results=2&gender=male&nat=au")
+
             Log.i("INIT", "EntradaProducto ---- $call")
             if (call.code() == 200){
                 val productEntrada: GenerateData? = call.body()
