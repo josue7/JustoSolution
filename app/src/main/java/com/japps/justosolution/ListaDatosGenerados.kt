@@ -2,7 +2,6 @@ package com.japps.justosolution
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.japps.justosolution.adaptador.DataGenerateAdapter
@@ -60,10 +59,6 @@ class ListaDatosGenerados : AppCompatActivity() {
             }
             urlGenerate += "nat=$resultGenerateNationaliti"
         }
-
-
-        Toast.makeText(this, "$urlGenerate", Toast.LENGTH_LONG).show()
-
         showDataGenerate()
     }
 
@@ -90,11 +85,9 @@ class ListaDatosGenerados : AppCompatActivity() {
     }
 
     private fun showDataGenerate(){
-        Log.i("INIT", "Entro a la funcion showByOnlyProduct de Entrada")
         CoroutineScope(Dispatchers.IO).launch {
             val call: Response<GenerateData> = getRetrofit().create(GenerateDataService::class.java).getDataRandom(urlGenerate)
 
-            Log.i("INIT", "EntradaProducto ---- $call")
             if (call.code() == 200){
                 val productEntrada: GenerateData? = call.body()
                 runOnUiThread {

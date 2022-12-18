@@ -25,12 +25,7 @@ class MainActivity : AppCompatActivity() {
         binder.actvResult.setAdapter(arrAdapter)
 
 
-        //binder.actvResult.setOnClickListener {
-
-        //}
-
         binder.btnDataGenerate.setOnClickListener{
-            //Toast.makeText(this, "${generateQueryGender()} and ${generateQueryNationaliti()}", Toast.LENGTH_SHORT).show()
             if (generateQueryGender() == true){
                 generateQueryNationaliti()
                 resultNumber = binder.actvResult.text.toString()
