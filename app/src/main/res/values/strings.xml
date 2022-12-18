@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">JustoSolution</string>
     <string name="text_mainTitle">Generador de datos</string>
-    <string name="text_optionTitle">Seleccione una o varias opciones</string>
+    <string name="text_optionTitle">Seleccione una o varias opciónes</string>
 
     <!-- Titulos para agregaran opciones -->
     <string name="text_numberResult">Número de resultados</string>
@@ -10,7 +10,7 @@
 
     <!-- Generos -->
     <string name="text_female">Femenino</string>
-    <string name="text_male">Maculino</string>
+    <string name="text_male">Masculino</string>
 
     <!-- Nacionalidades -->
     <string name="au">AU</string>
